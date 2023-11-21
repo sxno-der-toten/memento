@@ -243,3 +243,17 @@ button{
 .social i{
   margin-right: 4px;
 }
+a.retour {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    background-color:black;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -80,6 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         <button class="log">OK</button>
+        <a href="index.php" class="retour">Retour</a>
         <style>
             .log {
                 color :white;
