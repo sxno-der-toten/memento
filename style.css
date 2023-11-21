@@ -22,12 +22,14 @@ body {
   }
 
   p.contenu {
-    margin-bottom: 15%;
+    margin-bottom: 5%;
+    max-height: 80%; 
+    overflow-y: auto;
   }
 
   hr {
     margin-left: 100px;
-    margin-right: 60px;
+    margin-right: 40px;
   }
 
   .logs {
@@ -38,7 +40,7 @@ body {
   .connexion,
 .register {
   margin-top: 20%;
-  max-width: 90px;
+  max-width: 115px;
   margin-right: 10px;
 }
   

@@ -29,10 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="add.css">
     <title>Ajouter un post-it</title>
 </head>
 <body>
-    <h2>Ajouter un post-it</h2>
     <form action="" method="post">
         <label for="champ_contente_1">Titre :</label>
         <input type="text" id="champ_contente_1" name="champ_contente_1"><br><br>

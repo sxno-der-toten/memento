@@ -24,8 +24,8 @@ $datas = $response->fetchAll();
     <h1 class='titre'>Memento</h1>
   </div>
   <nav class="logs">
-  <a href="login.php" class="connexion">Login</a>
-  <a href="register.php" class="register">Register</a>
+  <a href="login2.php" class="connexion">Connexion</a>
+  <a href="register.php" class="register">Inscription</a>
   </nav>
 </header>
 <hr>
@@ -36,9 +36,9 @@ $datas = $response->fetchAll();
 <div class='parent'>
   <?php foreach($datas as $data) { ?>
     <div class="postits">
-    <a href='delete.php?id=<?= $data['id']?>' class="supprimer" title='<?= $data['title']?>'>✖</a>
       <h4 class='titres'><?= $data['title']?></h4>
       <p class='contenu'><?= $data['content']?><br><?= $data['date']?></p>
+      <a href='delete.php?id=<?= $data['id']?>' class="supprimer" title='<?= $data['title']?>'>✖</a>
     </div>
   <?php } ?>
 </div>
