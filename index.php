@@ -15,7 +15,7 @@ $datas = $response->fetchAll();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Memento</title>
-  <link rel="stylesheet" type="text/css" href="index.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
@@ -23,7 +23,7 @@ $datas = $response->fetchAll();
   <div class="logo">
     <h1 class='titre'>Memento</h1>
   </div>
-  <nav class="nav">
+  <nav class="logs">
   <a href="login.php" class="connexion">Login</a>
   <a href="register.php" class="register">Register</a>
   </nav>
@@ -31,13 +31,12 @@ $datas = $response->fetchAll();
 <hr>
 <div class="add">
 <h1 class="head">Memento</h1>
-
-
-<a href="compte.php" class="ajouter">Ajouter un post-it</a>
+<a href="add.php" class="ajouter">Ajouter un post-it</a>
 </div>
 <div class='parent'>
   <?php foreach($datas as $data) { ?>
     <div class="postits">
+    <a href='delete.php?id=<?= $data['id']?>' class="supprimer" title='<?= $data['title']?>'>✖</a>
       <h4 class='titres'><?= $data['title']?></h4>
       <p class='contenu'><?= $data['content']?><br><?= $data['date']?></p>
     </div>

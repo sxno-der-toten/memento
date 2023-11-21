@@ -1,0 +1,209 @@
+.titre {
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+  
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    margin: 10px 105px;
+  }
+
+  .titres {
+    display: flex;
+    justify-content: center;
+  }
+
+  p.contenu {
+    margin-bottom: 15%;
+  }
+
+  hr {
+    margin-left: 100px;
+    margin-right: 60px;
+  }
+
+  .logs {
+    display: flex;
+    align-items: center;
+  }
+
+  .connexion,
+.register {
+  margin-top: 20%;
+  max-width: 90px;
+  margin-right: 10px;
+}
+  
+  .connexion{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .connexion{
+    display: block;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #333;
+    border: 0.5px solid #333;
+    border-radius: 30px;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    transition: all .35s;
+  }
+  
+  span{
+    position: relative;
+    z-index: 2;
+  }
+  
+  .connexion:after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: blue;
+    color:white;
+    border-radius: 30px;
+    transition: all .35s;
+  }
+  
+  .connexion:hover{
+    color:white;
+  }
+  
+  .connexion:hover:after{
+    width: 100%;
+    color: #fff;
+  }
+  
+  .register {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #333;
+    border: 0.5px solid #333;
+    border-radius: 30px;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    transition: all .35s;
+  }
+    .register:after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: blue;
+    color:white;
+    border-radius: 30px;
+    transition: all .35s;
+  }
+  
+  .register:hover{
+    color:white;
+  }
+  
+  .register:hover:after{
+    width: 100%;
+    color: #fff;
+  }
+  
+  .head {
+  
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 50px;
+  }
+
+  .postits {
+    margin-bottom: 20px; 
+    padding: 100px;
+    background-color: #ffd700;
+    border: 3px solid #ffd700;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.parent {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 70%;
+  margin: 10px auto;
+  height: 100px;
+}
+
+.postits {
+  width: 200px;
+  margin: 10px auto;
+  margin-top: 20%;
+  padding: 10%;
+  background-color: #ffd700;
+  box-shadow: white;
+  text-align: center;
+}
+
+  .ajouter {
+    max-width: 300px;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+
+  .ajouter:hover {
+    background-color: #0056b3;
+  }
+
+  .supprimer {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    max-width: 300px;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color:#ffd700;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+
+  .supprimer:hover {
+    background-color: red;
+  }
+
+  .add {
+    text-align: center;
+  }
+  
