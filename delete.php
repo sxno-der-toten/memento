@@ -2,7 +2,7 @@
 require 'assets/connexion.php';
 
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
-    header('location: index.php');
+    header('location: loged.php');
     exit();
 }
 
@@ -14,6 +14,6 @@ $data = $response->fetch();
     $deleteQuery = "DELETE FROM post_it WHERE id=:id";
     $deleteResponse = $bdd->prepare($deleteQuery);
     if ($deleteResponse->execute(['id' => $_GET['id']])) {
-        header('location: index.php');
+        header('location: main.php');
         exit();
     } 

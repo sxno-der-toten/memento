@@ -1,48 +1,57 @@
 <?php
+session_start();
 session_unset();
 
-require 'assets/connexion.php';
-
+require 'connexion.php';
 function validationEmail($email)
 {
     return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $first_Name = $_POST['first_name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $name = $_POST['name'];
-    $password_confirmation = $_POST['password_confirmation'];
 
-    if (!empty($email) && !empty($password) && !empty($name) && !empty($password_confirmation)) {
+    if (!empty($email) && !empty($password)) {
         if (validationEmail($email) && strlen($password) >= 8) {
-            if ($password !== $password_confirmation) {
-                echo 'Les mots de passe ne correspondent pas.';
-            } else {
-                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-                
-                try {
-                    $stmt = $bdd->prepare("INSERT INTO admin (first_name, name, email, password) VALUES (:first_name, :name, :email, :password)");
-                    $stmt->bindParam(':first_name', $first_Name);
-                    $stmt->bindParam(':name', $name);
-                    $stmt->bindParam(':email', $email);
-                    $stmt->bindParam(':password', $hashedPassword);
-                    $stmt->execute();
+            try {
+                $stmt = $bdd->prepare("SELECT * FROM admin WHERE email = :email");
+                $stmt->bindParam(':email', $email);
+                $stmt->execute();
+                $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                    echo "Données enregistrées avec succès.";
-                    // Rediriger après l'insertion des données
-                    header("Location: loged.php");
-                    exit();
-                } catch (PDOException $e) {
-                    echo "Erreur : " . $e->getMessage();
+                if ($user) {
+                    
+                    if (password_verify($password, $user['password'])) {
+
+                        $stmt = $bdd->prepare("SELECT first_name FROM admin WHERE email = :email");
+                        $stmt->bindParam(':email', $email);
+                        $stmt->execute();
+                        $userData = $stmt->fetch(PDO::FETCH_ASSOC);
+                
+                        if ($userData) {
+                            $_SESSION['first_name'] = $userData['first_name'];
+                        }
+                        $_SESSION['email'] = $email;
+                        $_SESSION['islog']= true;
+                        header('Location: loged.php');
+                        exit();
+                    } else {
+                        
+                        echo "Le mot de passe est incorrect.";
+                    }
+                } else {
+                   
+                    echo "L'email n'est pas enregistré.";
                 }
+            } catch (PDOException $e) {
+                echo "Erreur : " . $e->getMessage();
             }
         } else {
-            echo 'Email invalide ou mot de passe trop court (minimum 8 caractères).';
+            echo "L'email n'est pas valide ou le mot de passe doit contenir au moins 8 caractères.";
         }
     } else {
-        echo 'Veuillez remplir tous les champs du formulaire.';
+        echo "Les champs email et password ne peuvent pas être vides.";
     }
 }
 ?>

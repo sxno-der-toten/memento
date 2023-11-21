@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'date' => $date,
     ]);
 
-    header('Location: index.php');
+    header('Location: main.php');
     exit();
 }
 ?>
